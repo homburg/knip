@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { execSync } from 'node:child_process';
-import test from 'node:test';
+import { test } from 'bun:test';
 import { helpText } from '../src/util/cli-arguments.js';
 import { resolve } from '../src/util/path.js';
 import { version } from '../src/version.js';

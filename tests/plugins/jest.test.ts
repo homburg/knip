@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 // eslint-disable-next-line n/no-restricted-import
 import path from 'node:path';
-import test from 'node:test';
+import { test } from 'bun:test';
 import * as jest from '../../src/plugins/jest/index.js';
 import { resolve, join } from '../../src/util/path.js';
 

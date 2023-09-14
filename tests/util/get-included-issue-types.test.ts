@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import test from 'node:test';
+import { test } from 'bun:test';
 import { ISSUE_TYPES } from '../../src/constants.js';
 import { getIncludedIssueTypes } from '../../src/util/get-included-issue-types.js';
 

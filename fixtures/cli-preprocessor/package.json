@@ -1,3 +1,4 @@
 {
-  "name": "@fixtures/cli-preprocessor"
+  "name": "@fixtures/cli-preprocessor",
+  "type": "module"
 }

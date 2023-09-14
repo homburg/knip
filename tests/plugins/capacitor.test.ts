@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import test from 'node:test';
+import { test } from 'bun:test';
 import * as capacitor from '../../src/plugins/capacitor/index.js';
 import { resolve, join } from '../../src/util/path.js';
 

@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import test from 'node:test';
+import { test } from 'bun:test';
 import * as stryker from '../../src/plugins/stryker/index.js';
 import { resolve, join } from '../../src/util/path.js';
 

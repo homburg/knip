@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import test from 'node:test';
+import { test } from 'bun:test';
 import { main } from '../../src/index.js';
 import * as postcss from '../../src/plugins/postcss/index.js';
 import { resolve, join } from '../../src/util/path.js';

@@ -1,4 +1,4 @@
-import util from 'node:util';
+import { inspect } from 'node:util';
 import parsedArgValues from './cli-arguments.js';
 
 const { debug, 'debug-file-filter': debugFileFilter } = parsedArgValues;
@@ -13,9 +13,9 @@ const logArray = (collection: string[]) => {
   if (FILE_FILTER) {
     const fileFilter = new RegExp(FILE_FILTER);
     const files = collection.filter(filePath => fileFilter.test(filePath));
-    console.log(util.inspect(files.sort(), inspectOptions));
+    console.log(inspect(files.sort(), inspectOptions));
   } else {
-    console.log(util.inspect(collection.sort(), inspectOptions));
+    console.log(inspect(collection.sort(), inspectOptions));
   }
 };
 
@@ -27,7 +27,7 @@ export const debugLog = (message: string) => {
 export const debugLogObject = (name: string, obj: unknown) => {
   if (!IS_ENABLED) return;
   console.log(`[knip] ${name}`);
-  console.log(util.inspect(obj, inspectOptions));
+  console.log(inspect(obj, inspectOptions));
 };
 
 export const debugLogArray = (name: string, sourceFiles: string[] | Set<string>) => {

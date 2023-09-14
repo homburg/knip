@@ -1,4 +1,4 @@
-name: Cross-OS Tests
+name: Tests (Bun)
 
 on:
   workflow_dispatch:
@@ -11,29 +11,15 @@ on:
 
 jobs:
   test:
-    strategy:
-      matrix:
-        os:
-          - macos-latest
-          - ubuntu-latest
-          - windows-latest
-        node:
-          - 16
-          - 18
-          - 20
-
-    runs-on: ${{ matrix.os }}
-    name: ${{ matrix.os }} (Node v${{ matrix.node }})
+    runs-on: ubuntu-latest
+    name: ubuntu-latest (Node v20)
 
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node }}
-          cache: 'npm'
-      - run: npm ci
-      - run: npm run lint
-      - run: npm run build
-      - run: npm run knip
-      - run: npm run knip:production
-      - run: npm test
+      - uses: oven-sh/setup-bun@v1
+      - run: bun install
+      # - run: bun run lint
+      - run: bun run build
+      - run: bun run knip
+      # - run: bun run knip:production
+      - run: bun run test

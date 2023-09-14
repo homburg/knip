@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
-import test from 'node:test';
+import { test } from 'bun:test';
 import { main } from '../../src/index.js';
 import { join, resolve } from '../../src/util/path.js';
 import baseArguments from '../helpers/baseArguments.js';

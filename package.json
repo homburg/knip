@@ -17,24 +17,23 @@
   "type": "module",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "knip": "node ./dist/cli.js",
-    "knip:production": "node ./dist/cli.js --production --strict --ignore-internal",
+    "knip": "bun ./dist/cli.js",
+    "knip:production": "bun ./dist/cli.js --production --strict --ignore-internal",
     "lint": "eslint scripts src tests",
     "lint:fix": "eslint scripts src tests --fix",
     "format": "prettier scripts src tests schema.json --with-node-modules --write --config .prettierrc",
-    "pretest": "node rmdir.js tmp && swc src -d tmp/src && swc tests -d tmp/tests",
-    "test": "node --no-warnings --test tmp",
-    "coverage": "c8 --reporter html node --no-warnings --loader tsx --test tests/*.test.ts tests/*/*.test.ts",
-    "watch": "rm $(which knip); npm link && tsc --watch",
-    "prebuild": "node rmdir.js dist",
+    "test": "bun test tests",
+    "coverage": "c8 --reporter html bun --no-warnings --test tests/*.test.ts tests/*/*.test.ts",
+    "watch": "bun link && tsc --watch",
+    "prebuild": "bun rmdir.js dist",
     "build": "tsc",
-    "docs": "npm run docs:cli && npm run docs:plugins && npm run docs:format",
-    "docs:cli": "tsx ./scripts/update-cli-usage-in-readme.ts",
-    "docs:plugins": "tsx ./scripts/generate-plugin-docs.ts",
+    "docs": "bun run docs:cli && bun run docs:plugins && bun run docs:format",
+    "docs:cli": "bun ./scripts/update-cli-usage-in-readme.ts",
+    "docs:plugins": "bun ./scripts/generate-plugin-docs.ts",
     "docs:format": "remark README.md docs/*.md .github/*.md src/plugins/*/README.md -o",
-    "qa": "npm run lint && npm run build && npm run knip && npm run knip:production && npm test",
+    "qa": "bun run lint && bun run build && bun run knip && bun run knip:production && bun test",
     "release": "release-it",
-    "create-plugin": "tsx --no-warnings ./scripts/create-new-plugin.ts",
+    "create-plugin": "bun --no-warnings ./scripts/create-new-plugin.ts",
     "postcreate-plugin": "prettier schema.json src/ConfigurationValidator.ts --write --config .prettierrc --log-level silent"
   },
   "files": [
@@ -44,12 +43,13 @@
   "dependencies": {
     "@ericcornelissen/bash-parser": "^0.5.2",
     "@npmcli/map-workspaces": "^3.0.4",
+    "@pkgjs/parseargs": "^0.11.0",
     "@snyk/github-codeowners": "^1.1.0",
     "chalk": "^5.2.0",
     "easy-table": "^1.2.0",
     "fast-glob": "^3.2.12",
     "globby": "^13.1.3",
-    "jiti": "^1.19.3",
+    "jiti": "^1.20.0",
     "js-yaml": "^4.1.0",
     "micromatch": "^4.0.5",
     "minimist": "^1.2.8",
@@ -64,14 +64,13 @@
     "@jest/types": "29.6.3",
     "@npmcli/package-json": "5.0.0",
     "@release-it/bumper": "5.1.0",
-    "@swc/cli": "0.1.62",
-    "@swc/core": "1.3.84",
     "@types/eslint": "8.44.2",
     "@types/js-yaml": "4.0.5",
     "@types/micromatch": "4.0.2",
     "@types/minimist": "1.2.2",
     "@types/node": "20.6.0",
     "@types/npmcli__map-workspaces": "3.0.1",
+    "@types/pkgjs__parseargs": "^0.10.0",
     "@types/webpack": "5.28.2",
     "@typescript-eslint/eslint-plugin": "6.7.0",
     "@typescript-eslint/parser": "6.7.0",
@@ -84,7 +83,6 @@
     "release-it": "16.1.5",
     "remark-cli": "11.0.0",
     "remark-preset-webpro": "0.0.3",
-    "tsx": "3.12.8",
     "type-fest": "4.3.1"
   },
   "engines": {
@@ -94,12 +92,12 @@
   "release-it": {
     "hooks": {
       "before:init": [
-        "npm run lint",
-        "npm run build",
-        "npm run knip",
-        "npm run knip:production",
-        "npm run docs",
-        "npm test"
+        "bun run lint",
+        "bun run build",
+        "bun run knip",
+        "bun run knip:production",
+        "bun run docs",
+        "bun test"
       ]
     },
     "github": {

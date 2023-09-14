@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import test from 'node:test';
+import { test } from 'bun:test';
 import { resolvePluginSpecifier, resolveExtendSpecifier } from '../../src/plugins/eslint/helpers.js';
 import * as eslint from '../../src/plugins/eslint/index.js';
 import { resolve, join } from '../../src/util/path.js';

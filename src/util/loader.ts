@@ -3,7 +3,6 @@ import { LoaderError } from './errors.js';
 import { loadJSON, loadYAML, loadFile, parseJSON, parseYAML } from './fs.js';
 import { extname } from './path.js';
 import { timerify } from './Performance.js';
-import { jiti } from './register.js';
 
 const load = async (filePath: string) => {
   try {
@@ -27,7 +26,7 @@ const load = async (filePath: string) => {
       return imported.default ?? imported;
     }
 
-    return jiti(filePath);
+    return import(filePath);
   } catch (error) {
     throw new LoaderError(`Error loading ${filePath}`, { cause: error });
   }

@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import test from 'node:test';
+import { test } from 'bun:test';
 import * as ava from '../../src/plugins/ava/index.js';
 import { join, resolve } from '../../src/util/path.js';
 import { getManifest } from '../helpers/index.js';

@@ -1,12 +1,11 @@
 import assert from 'node:assert/strict';
-import { execSync } from 'node:child_process';
-import test from 'node:test';
+import { test } from 'bun:test';
 import { resolve } from '../src/util/path.js';
 
 const cwd = resolve('fixtures/cli-preprocessor');
 
 const exec = (command: string) => {
-  const output = execSync(command.replace(/^knip/, 'node ../../dist/cli.js'), { cwd });
+  const output = Bun.spawn([command], { cwd });
   return output.toString().trim();
 };
 
