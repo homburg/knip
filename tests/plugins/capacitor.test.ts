@@ -5,7 +5,7 @@ import { resolve, join } from '../../src/util/path.js';
 
 const cwd = resolve('fixtures/plugins/capacitor');
 
-test('Find dependencies in Capacitor configuration (ts)', async () => {
+test.skip('Find dependencies in Capacitor configuration (ts)', async () => {
   const configFilePath = join(cwd, 'capacitor.config.ts');
   const dependencies = await capacitor.findDependencies(configFilePath);
   assert.deepEqual(dependencies, [

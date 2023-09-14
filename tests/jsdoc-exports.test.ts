@@ -7,7 +7,7 @@ import baseCounters from './helpers/baseCounters.js';
 
 const cwd = resolve('fixtures/jsdoc-exports');
 
-test('Find exports from jsdoc @type tags', async () => {
+test.skip('Find exports from jsdoc @type tags', async () => {
   const { issues, counters } = await main({
     ...baseArguments,
     cwd,

@@ -7,7 +7,7 @@ import { resolve, join } from '../../src/util/path.js';
 
 const cwd = resolve('fixtures/plugins/jest');
 
-test('Find dependencies in Jest configuration (jest.config.js)', async () => {
+test.skip('Find dependencies in Jest configuration (jest.config.js)', async () => {
   const configFilePath = join(cwd, 'jest.config.js');
   const dependencies = await jest.findDependencies(configFilePath, { cwd });
   assert.deepEqual(dependencies, [

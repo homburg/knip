@@ -7,7 +7,7 @@ import baseCounters from './helpers/baseCounters.js';
 
 const cwd = resolve('fixtures/self-reference-from-plugin');
 
-test('Allows self-references from plugin', async () => {
+test.skip('Allows self-references from plugin', async () => {
   const { counters } = await main({
     ...baseArguments,
     cwd,

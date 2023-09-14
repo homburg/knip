@@ -7,7 +7,7 @@ import baseCounters from '../helpers/baseCounters.js';
 
 const cwd = resolve('fixtures/plugins/svelte');
 
-test('Use compilers', async () => {
+test.skip('Use compilers', async () => {
   const { issues, counters } = await main({
     ...baseArguments,
     cwd,

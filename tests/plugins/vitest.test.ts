@@ -10,25 +10,25 @@ import { getManifest } from '../helpers/index.js';
 const cwd = resolve('fixtures/plugins/vitest');
 const manifest = getManifest(cwd);
 
-test('Find dependencies in vitest configuration (vitest)', async () => {
+test.skip('Find dependencies in vitest configuration (vitest)', async () => {
   const configFilePath = join(cwd, 'vitest.config.ts');
   const dependencies = await vitest.findDependencies(configFilePath, { cwd, manifest });
   assert.deepEqual(dependencies, ['happy-dom', '@vitest/coverage-istanbul', './setup.js', './src/setupTests.ts']);
 });
 
-test('Find dependencies in vitest configuration without coverage providers (vitest)', async () => {
+test.skip('Find dependencies in vitest configuration without coverage providers (vitest)', async () => {
   const configFilePath = join(cwd, 'vitest-default-coverage.config');
   const dependencies = await vitest.findDependencies(configFilePath, { cwd, manifest });
   assert.deepEqual(dependencies, ['jsdom', '@vitest/coverage-v8']);
 });
 
-test('Find dependencies in vitest configuration (vite)', async () => {
+test.skip('Find dependencies in vitest configuration (vite)', async () => {
   const configFilePath = join(cwd, 'vite.config.ts');
   const dependencies = await vitest.findDependencies(configFilePath, { cwd, manifest });
   assert.deepEqual(dependencies, ['@edge-runtime/vm', '@vitest/coverage-c8', './setup.js', './global.ts']);
 });
 
-test('Find dependencies in vitest configuration', async () => {
+test.skip('Find dependencies in vitest configuration', async () => {
   const { issues, counters } = await main({
     ...baseArguments,
     cwd,

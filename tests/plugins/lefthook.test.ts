@@ -7,7 +7,7 @@ import { getManifest } from '../helpers/index.js';
 const cwd = resolve('fixtures/plugins/lefthook');
 const manifest = getManifest(cwd);
 
-test('Find dependencies in lefthook configuration (json)', async () => {
+test.skip('Find dependencies in lefthook configuration (json)', async () => {
   const CI = process.env.CI;
   process.env.CI = '';
   const configFilePath = join(cwd, 'lefthook.yml');

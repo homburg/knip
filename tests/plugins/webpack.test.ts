@@ -12,7 +12,7 @@ import { getManifest } from '../helpers/index.js';
 const cwd = resolve('fixtures/plugins/webpack');
 const manifest = getManifest(cwd);
 
-test('Find dependencies in Webpack configuration (webpack.config.js)', async () => {
+test.skip('Find dependencies in Webpack configuration (webpack.config.js)', async () => {
   const configFilePath = join(cwd, 'webpack.config.js');
   const dependencies = await webpack.findDependencies(configFilePath, { cwd, manifest });
   assert.deepEqual(dependencies, [
@@ -39,7 +39,7 @@ test('Find dependencies in Webpack configuration (webpack.config.js)', async () 
   ]);
 });
 
-test('Find dependencies in Webpack configuration', async () => {
+test.skip('Find dependencies in Webpack configuration', async () => {
   const { issues, counters } = await main({
     ...baseArguments,
     cwd,

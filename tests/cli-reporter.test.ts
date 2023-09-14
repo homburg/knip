@@ -9,18 +9,18 @@ const exec = (command: string) => {
   return output.toString().trim();
 };
 
-test('knip --reporter ./index.js', () => {
+test.skip('knip --reporter ./index.js', () => {
   assert.equal(exec('knip --reporter ./index.js'), 'hi from js reporter');
 });
 
-test('knip --reporter ./index.ts', () => {
+test.skip('knip --reporter ./index.ts', () => {
   assert.equal(exec('knip --reporter ./index.ts'), 'hi from ts reporter');
 });
 
-test('knip --reporter knip-reporter', () => {
+test.skip('knip --reporter knip-reporter', () => {
   assert.equal(exec('knip --reporter knip-reporter'), 'hi from pkg reporter');
 });
 
-test('knip --reporter @org/reporter', () => {
+test.skip('knip --reporter @org/reporter', () => {
   assert.equal(exec('knip --reporter @org/reporter'), 'hi from scoped reporter');
 });

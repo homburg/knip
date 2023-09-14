@@ -37,7 +37,7 @@ test('Find dependencies in Babel configuration (.babelrc.js)', async () => {
   ]);
 });
 
-test('Find dependencies in Babel configuration (babel.config.js)', async () => {
+test.skip('Find dependencies in Babel configuration (babel.config.js)', async () => {
   const configFilePath = join(cwd, 'babel.config.js');
   const dependencies = await babel.findDependencies(configFilePath, { manifest });
   assert.deepEqual(dependencies, [

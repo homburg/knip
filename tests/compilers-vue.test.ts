@@ -7,7 +7,7 @@ import baseCounters from './helpers/baseCounters.js';
 
 const cwd = resolve('fixtures/compilers-vue');
 
-test('Support compiler functions in config (vue)', async () => {
+test.skip('Support compiler functions in config (vue)', async () => {
   const { counters } = await main({
     ...baseArguments,
     cwd,

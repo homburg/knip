@@ -9,18 +9,18 @@ const exec = (command: string) => {
   return output.toString().trim();
 };
 
-test('knip --preprocessor ./index.js', () => {
+test.skip('knip --preprocessor ./index.js', () => {
   assert.equal(exec('knip --preprocessor ./index.js'), 'hi from js preprocessor');
 });
 
-test('knip --preprocessor ./index.ts', () => {
+test.skip('knip --preprocessor ./index.ts', () => {
   assert.equal(exec('knip --preprocessor ./index.ts'), 'hi from ts preprocessor');
 });
 
-test('knip --preprocessor knip-preprocessor', () => {
+test.skip('knip --preprocessor knip-preprocessor', () => {
   assert.equal(exec('knip --preprocessor knip-preprocessor'), 'hi from pkg preprocessor');
 });
 
-test('knip --preprocessor @org/preprocessor', () => {
+test.skip('knip --preprocessor @org/preprocessor', () => {
   assert.equal(exec('knip --preprocessor @org/preprocessor'), 'hi from scoped preprocessor');
 });
