@@ -13,6 +13,13 @@ export function createCustomModuleResolver(
   function resolveModuleName(name: string, containingFile: string): ts.ResolvedModule | undefined {
     const tsResolvedModule = ts.resolveModuleName(name, containingFile, compilerOptions, ts.sys).resolvedModule;
 
+    // workspace package is returned here. Depending on paths in tsconfig.json.
+    // If there is not matching paths entry, the module is marked as isExternalLibraryImport
+    // And compared against dependencies in the package.json
+
+    // If there is a matching paths entry, the module is marked as not isExternalLibraryImport
+    // And marked as an ununsed dependency in the package.json
+
     if (virtualFileExtensions.length === 0) return tsResolvedModule;
 
     if (tsResolvedModule && !isVirtualFilePath(tsResolvedModule.resolvedFileName, virtualFileExtensions)) {
